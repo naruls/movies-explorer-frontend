@@ -1,0 +1,200 @@
+.header {
+    width: 100%;
+    background-color: #073042;
+}
+
+.header_login {
+    width: 100%;
+    background-color: #202020;
+}
+
+.header__content {
+    width: 1280px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.header__button-logo {
+    height: 74px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.header__button-logo:hover {
+    opacity: 0.6;
+}
+
+.header__logo {
+    margin: 18px 0 18px 70px;
+    width: 38px;
+    height: 38px;
+}
+
+.header__buttons {
+    margin: 21px 70px 21px auto;
+}
+
+.header__buttons_login {
+    width: 100%;
+    display: flex;
+    margin: 21px 70px 21px 44px;
+}
+
+.header__button {
+    padding: 0;
+    border: none;
+    margin-left: 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.header__link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.header__button:hover {
+    opacity: 0.6;
+}
+
+.header__button:first-of-type {
+    margin-left: 0;
+}
+
+.header__button_login {
+    padding: 0;
+    border: none;
+    margin-left: 30px;
+    font-style: normal;
+    cursor: pointer;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.header__button_login:last-of-type {
+    margin-left: 0;
+}
+
+.header__button_login:hover {
+    opacity: 0.6;
+}
+
+
+.header__register {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.header__login {
+    color: #000000;
+    width: 76px;
+    height: 32px;
+    background-color: #3DDC84;
+    border-radius: 3px;
+}
+
+.header__movies {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    margin: auto 16px auto 0;
+}
+
+.header__save-movies {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    margin: auto auto auto 0;
+}
+
+.header__account {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    padding: 8px 20px;
+    background: #313131;
+    border-radius: 20px;
+}
+
+.header__menu-button {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: #202020;
+    background-image: url(../../images/menu-button.svg);
+}
+
+.header__menu-button:hover {
+    background-color: #3DDC84;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) and (max-width:1279px) {
+    .header__content {
+      max-width: 92.1875%;
+    }
+
+    .header__logo {
+        margin-left: 0;
+    }
+
+    .header__buttons_login {
+        margin: 15px 0;
+        justify-content: flex-end;
+    }
+
+    .header__button_login {
+        display: none;
+    }
+
+    .header__menu-button {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width:767px) {
+    .header__content {
+      max-width: 91.25%;
+    }
+
+    .header__logo {
+        margin-left: 0;
+    }
+
+    .header__buttons {
+        margin: 24px 0 24px auto;
+    }
+
+    .header__buttons_login {
+        margin: 15px 0;
+        justify-content: flex-end;
+    }
+    
+    .header__button {
+        margin-left: 14px;
+        font-size: 10px;
+    }
+    
+    .header__button_login {
+        display: none;
+    }
+
+    .header__menu-button {
+        display: flex;
+    }
+    
+    .header__login {
+        width: 54px;
+        height: 26px;
+    }
+
+
+}
