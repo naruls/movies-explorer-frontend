@@ -50,7 +50,11 @@
     padding: 15px;
     background-color:#2F2F2F;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 6px;
+}
+
+.register__input_error {
+    color:#EE3465;
 }
 
 .register__input:last-of-type {
@@ -58,11 +62,15 @@
 }
 
 .register__input-error {
-    display: none;
+    height: 12px;
+    margin-bottom: 2px;
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
     color: #EE3465;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .register__submit-button {
@@ -76,6 +84,18 @@
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
+}
+
+.register__submit-button_inactive {
+    border: none;
+    padding: 15px;
+    margin-top: auto;
+    background-color: #323f53;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #8B8B8B;
 }
 
 .register__submit-button:hover {
@@ -124,9 +144,6 @@
         height: 468px;
     }
     
-    .register__input {
-        margin-bottom: 35px;
-    }
     .register__inform {
         font-size: 12px;
         line-height: 15px;

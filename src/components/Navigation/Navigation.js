@@ -8,10 +8,10 @@ function Navigation(props) {
             <div className="navigation__content">
                 <button className="navigation__exit-button"><img className="navigation__exit-image" src={exitButton} alt="Закрыть" onClick={props.closeNavigationMenu}/></button>
                 <ul className="navigation__navigate-buttons">
-                    <li className="navigation__navigate-button navigation__button-main"><Link to="/main" className='navigation__link'>Главная</Link></li>
-                    <li className="navigation__navigate-button navigation__button-movies"><Link to="/movies" className='navigation__link'>Фильмы</Link></li>
-                    <li className="navigation__navigate-button navigation__button-save"><Link to="/save-movies" className='navigation__link'>Сохранённые фильмы</Link></li>
-                    <li className="navigation__navigate-button navigation__button-account"><Link to="profile" className='navigation__link'>Аккаунт</Link></li>
+                    <li className="navigation__navigate-button navigation__button-main"><Link to="/main" className='navigation__link' onClick={props.closeNavigationMenu}>Главная</Link></li>
+                    <li className="navigation__navigate-button navigation__button-movies"><Link to="/movies" className='navigation__link' onClick={props.closeNavigationMenu}>Фильмы</Link></li>
+                    <li className="navigation__navigate-button navigation__button-save"><Link to="/saved-movies" className='navigation__link' onClick={props.closeNavigationMenu}>Сохранённые фильмы</Link></li>
+                    <li className="navigation__navigate-button navigation__button-account"><Link to="profile" className='navigation__link' onClick={props.closeNavigationMenu}>Аккаунт</Link></li>
                 </ul>
             </div>
         </section>

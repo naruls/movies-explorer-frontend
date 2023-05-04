@@ -32,6 +32,10 @@
     margin: 30px auto 0;
 }
 
+.movies-card__validation-error_hidden {
+    display: none;
+}
+
 .movies-card__open-button {
     width: 320px;
     height: 36px;
@@ -45,6 +49,10 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
+}
+
+.movies-card__open-button_hidden {
+    display: none;
 }
 
 .movies-card__open-button:hover {

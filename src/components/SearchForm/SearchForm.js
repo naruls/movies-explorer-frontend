@@ -3,9 +3,23 @@ import searchButton from '../../images/search-button.svg'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm(props) {
+
+    function serializeForm(formNode) {
+        const { elements } = formNode
+        const allInputData = Array.from(elements)
+            .filter((item) => !!item.name)
+            .map((element) => {
+                const {name, type } = element;
+                const value = type === 'checkbox' ? element.checked : element.value;
+                return {name, value}
+            })
+        props.setSearchData(allInputData);
+        return allInputData;
+    }
+
     function searchFilms(evt) {
         evt.preventDefault();
-        props.getFilms();
+        props.getFilms(serializeForm(evt.target));
     }
 
     return(
@@ -14,7 +28,7 @@ function SearchForm(props) {
                 <form className="search-form__form" onSubmit={searchFilms}>
                     <div className="search-form__serch-panel">
                         <img className="search-form__magnifier" src={magnifier} alt="Поиск" />
-                        <input className="search-form__input" placeholder='Фильм' />
+                        <input className="search-form__input" placeholder='Фильм' name="search-form__input" />
                         <button className="search-form__button"><img className="search-form__button-image" alt="кнопка" src={searchButton} /></button>
                     </div>
                     <FilterCheckbox />

@@ -13,6 +13,7 @@ export class Api {
         })
         .then(this._getResponseData)
     }
+
     _getResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`Ошибка: ${res.status}`);

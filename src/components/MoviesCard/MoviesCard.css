@@ -6,8 +6,12 @@
     border-radius: 0 0 10px 10px;
 }
 
+.card__trailer-link {
+    all: unset;
+    cursor: pointer;
+}
+
 .card__image {
-    background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/39c11fbb-c5f5-4ff7-b72e-fc441a39cdc2/3840x');
     background-size: cover;
     width: 100%;
     height: 151px;
@@ -33,6 +37,9 @@
     font-size: 13px;
     line-height: 16px;
     color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card__duration {

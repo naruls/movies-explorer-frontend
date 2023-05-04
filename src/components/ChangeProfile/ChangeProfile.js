@@ -1,20 +1,50 @@
-function ChangeProfile() {
+import React from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useFormWithValidation } from '../Validation/Validation';
+
+function ChangeProfile(props) {
+    const {values, handleChange, errors, isValid, resetForm} = useFormWithValidation();
+    const currentUser = React.useContext(CurrentUserContext);
+    const [name, setName] = React.useState(`${currentUser.name}`)
+    const [email, setEmail] = React.useState(`${currentUser.email}`)
+
+    
+    function changeName(evt) {
+        handleChange(evt);
+        setName(evt.target.value);
+        props.changeFormErrorStatus();
+    }
+
+    function changeEmail(evt) {
+        handleChange(evt);
+        setEmail(evt.target.value);
+        props.changeFormErrorStatus();
+    }
+
+    function handelSubmit(e) {
+        e.preventDefault();
+        props.updateProfile({name: name, email:email})
+        resetForm();
+    }
+
     return(
         <section className="profile">
             <div className="profile__content">
-                <div className="profile__greeting">Привет, Кирилл!</div>
-                <form className="profile__form">
+                <div className="profile__greeting">{`Привет, ${currentUser.name}!`}</div>
+                <form className="profile__form" onSubmit={handelSubmit} noValidate >
                     <div className="profile__block-input">
                         <p className="profile__name-input">Имя</p>
-                        <input className="profile__input" placeholder="Введите имя"/>
-                        </div>
+                        <input name="name" className="profile__input" placeholder="Введите имя" value={name} onChange={changeName} required minLength="2" maxLength="40" type="text" />
+                        <span className="profile__input-error">{errors.name}</span>
+                    </div>
                     <div className="profile__block-input">
                         <p className="profile__name-input">E-mail</p>
-                        <input className="profile__input" placeholder="Введите e-mail" />
+                        <input name="email" className="profile__input" placeholder="Введите e-mail" value={email} onChange={changeEmail} required type="email" />
+                        {props.isFormHaveError ? <span className="profile__input-error">Что-то пошло не так...</span> : <span className="profile__input-error">{errors.email}</span>}
                     </div>
-                    <button className="profile__change-button profile__button">Редактировать</button>
+                    <button className={isValid ? "profile__change-button profile__button" : "profile__change-button_inactive"} disabled={isValid ? false : true}>Редактировать</button>
                 </form>
-                <button className="profile__exit-button profile__button">Выйти из аккаунта</button>
+                <button className="profile__exit-button profile__button" onClick={props.signOut}>Выйти из аккаунта</button>
             </div>
         </section>
     );

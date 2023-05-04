@@ -128,7 +128,7 @@
     padding: 0;
     border: none;
     cursor: pointer;
-    background-color: #202020;
+    background-color: transparent;
     background-image: url(../../images/menu-button.svg);
 }
 

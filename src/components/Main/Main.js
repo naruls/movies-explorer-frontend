@@ -9,13 +9,14 @@ import Footer from "../Footer/Footer";
 function Main(props) {
     return (
       <div className="main">
-        <Header setIsNavigationOpen={props.setIsNavigationOpen}/>
+        <Header loggedIn={props.loggedIn} setIsNavigationOpen={props.setIsNavigationOpen} headerCss={true} />
         <Promo />
         <NavTab />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Footer />
+        {/* <Navigation /> */}
       </div>
     );
   }

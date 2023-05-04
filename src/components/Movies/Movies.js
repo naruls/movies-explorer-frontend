@@ -10,10 +10,20 @@ function Movies(props) {
 
     return(
       <div className="movies">
-        <Header />
-        <SearchForm />
-        <Preloader />
-        <MoviesCardList />
+        <Header loggedIn={props.loggedIn} setIsNavigationOpen={props.setIsNavigationOpen}/>
+        <SearchForm getFilms={props.getFilms} setSearchData={props.setSearchData} />
+        <Preloader render={props.render} />
+        <MoviesCardList 
+          cardListBlockContent={props.cardListBlockContent} 
+          searchData={props.searchData} 
+          cards={props.cards}
+          page={props.page}
+          addCard={props.addCard} 
+          saveMovies={props.saveMovies}
+          deleteMovies={props.deleteMovies}
+          savedCards={props.savedCards}
+          userSavedMovies={props.userSavedMovies}
+        />
         <Footer />
       </div>
     );
