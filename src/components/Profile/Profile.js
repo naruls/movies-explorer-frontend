@@ -4,8 +4,8 @@ import ChangeProfile from "../ChangeProfile/ChangeProfile";
 function Profile(props) {
     return(
         <>
-            <Header loggedIn={props.loggedIn} setIsNavigationOpen={props.setIsNavigationOpen}/>
-            <ChangeProfile signOut={props.signOut} updateProfile={props.updateProfile} isFormHaveError={props.isFormHaveError} changeFormErrorStatus={props.changeFormErrorStatus}/>
+            <Header setIsNavigationOpen={props.setIsNavigationOpen}/>
+            <ChangeProfile />
         </>
     );
 }

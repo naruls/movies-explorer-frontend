@@ -7,8 +7,6 @@
 .about-me__content {
     flex-direction: column;
     width: 1280px;
-    font-style: normal;
-    font-weight: 400;
     margin: 0 auto;
 }
 
@@ -19,6 +17,8 @@
     border-bottom: 1px solid #DADADA;
     font-size: 22px;
     line-height: 27px;
+    font-style: normal;
+    font-weight: 400;
     letter-spacing: -0.04em;
 }
 
@@ -36,6 +36,8 @@
     grid-row: 1;
     font-size: 50px;
     line-height: 58px;
+    font-style: normal;
+    font-weight: 400;
     letter-spacing: -0.04em;
 }
 
@@ -43,6 +45,7 @@
     margin: 0;
     grid-column: 1;
     grid-row: 2;
+    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
@@ -54,11 +57,14 @@
     grid-row: 3;
     font-size: 14px;
     line-height: 22px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 .about-me__links {
     grid-column: 1;
     grid-row: 4;
+    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -99,12 +105,28 @@
     margin: 0 0 50px;
 }
 
-.about-me__site {
-    display: flex;
-    justify-content: space-between;
+.about-me__sites {
+    margin: 0;
+    padding: 0;
+    list-style:none;
+}
+
+.about-me__list-item {
     padding-bottom: 18px;
     border-bottom: 1px solid #424242;
     margin: 0 0 20px;
+}
+
+.about-me__list-item:last-of-type {
+    margin: 0;  
+    padding-bottom: 0;
+    border-bottom: 0;
+    margin-bottom: 125px;
+}
+
+.about-me__site {
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
     color: #FFFFFF;
 }
@@ -113,16 +135,11 @@
     opacity: 0.6;
 }
 
-.about-me__site:last-of-type {
-    margin: 0;  
-    padding-bottom: 0;
-    border-bottom: 0;
-    margin-bottom: 125px;
-}
-
 .about-me__site-name {
     font-size: 30px;
     line-height: 50px;
+    font-style: normal;
+    font-weight: 400;
     letter-spacing: -0.04em;
     margin: 0;
 }
@@ -181,7 +198,7 @@
         margin-top: 70px;
         padding-bottom: 27px;
         font-size: 18px;
-    line-height: 22px;
+        line-height: 22px;
     }
 
     .about-me__presentation {

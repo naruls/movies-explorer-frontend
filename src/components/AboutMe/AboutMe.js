@@ -20,20 +20,26 @@ function AboutMe() {
                 </div>
                 <div className="about-me__works">
                     <p className="about-me__portfolio">Портфолио</p>
-                    <div className="about-me__sites">
-                        <a className="about-me__site" target="_blank" href='https://vk.com/nihaenkokirill' rel='noreferrer'>
-                            <p className="about-me__site-name">Статичный сайт</p>
-                            <img className="about-me__site-arrow" src={arrow} alt="ссылка" />
-                        </a>
-                        <a className="about-me__site" target="_blank" href='https://vk.com/nihaenkokirill' rel='noreferrer'>
-                            <p className="about-me__site-name">Адаптивный сайт</p>
-                            <img className="about-me__site-arrow" src={arrow} alt="ссылка" />
-                        </a>
-                        <a className="about-me__site" target="_blank" href='https://vk.com/nihaenkokirill' rel='noreferrer'>
-                            <p className="about-me__site-name">Одностраничное приложение</p>
-                            <img className="about-me__site-arrow" src={arrow} alt="ссылка" />
-                        </a>
-                    </div>
+                    <ul className="about-me__sites">
+                        <li className='about-me__list-item'>
+                            <a className="about-me__site" target="_blank" href='https://vk.com/nihaenkokirill' rel='noreferrer'>
+                                <p className="about-me__site-name">Статичный сайт</p>
+                                <img className="about-me__site-arrow" src={arrow} alt="ссылка" />
+                            </a>
+                        </li>
+                        <li className='about-me__list-item'>
+                            <a className="about-me__site" target="_blank" href='https://vk.com/nihaenkokirill' rel='noreferrer'>
+                                <p className="about-me__site-name">Адаптивный сайт</p>
+                                <img className="about-me__site-arrow" src={arrow} alt="ссылка" />
+                            </a>
+                        </li>
+                        <li className='about-me__list-item'>
+                            <a className="about-me__site" target="_blank" href='https://vk.com/nihaenkokirill' rel='noreferrer'>
+                                <p className="about-me__site-name">Одностраничное приложение</p>
+                                <img className="about-me__site-arrow" src={arrow} alt="ссылка" />
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>

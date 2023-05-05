@@ -39,6 +39,7 @@
     width: 100%;
 }
 
+
 .search-form__button {
     padding: 0;
     border: none;
@@ -62,6 +63,8 @@
     border-bottom: 1px solid #424242;
     margin: 0 auto 10px;
 }
+
+
 
 @media screen and (min-width: 768px) and (max-width:1279px) {
 

@@ -3,12 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 
 function Header(props) {
+  const login = true;
 
     return (
       <header className={ props.headerCss ? 'header' : 'header_login' }>
         <div className='header__content'>
             <button className='header__button-logo'><Link to="/main"><img className='header__logo' src={logo} alt="Логотип" /></Link></button>
-            { props.loggedIn ?
+            { login ?
             <div className='header__buttons_login'>
               <button className='header__movies header__button_login'><Link to="/movies" className='header__link'>Фильмы</Link></button>
               <button className='header__save-movies header__button_login'><Link to="/saved-movies" className='header__link'>Сохранённые фильмы</Link></button>

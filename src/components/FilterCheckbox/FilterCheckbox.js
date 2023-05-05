@@ -2,7 +2,7 @@ function FilterCheckbox() {
     return(
         <div className='filter-checkbox'>
         <label className="toggler-wrapper style-14">
-          <input type="checkbox" name="search-form__checkbox"/>
+          <input type="checkbox" />
           <div className="toggler-slider">
             <div className="toggler-knob"></div>
           </div>
