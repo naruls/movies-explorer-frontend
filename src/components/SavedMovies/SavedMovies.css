@@ -1,0 +1,13 @@
+.saved-movies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #202020;
+}
+
+.saved-movies__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
