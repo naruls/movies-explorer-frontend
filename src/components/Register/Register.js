@@ -18,7 +18,7 @@ function Register() {
                     <button className="register__submit-button">Зарегистрироваться</button>
                 </form>
                 <p className="register__inform">Уже зарегистрированы?
-                    <a className="register__inform-link"><Link to="/signin" className="regiser__link"> Войти</Link></a>
+                    <Link to="/signin" className="regiser__link"> Войти</Link>
                 </p>
             </div>
         </section>

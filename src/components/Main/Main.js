@@ -10,11 +10,13 @@ function Main(props) {
     return (
       <div className="main">
         <Header setIsNavigationOpen={props.setIsNavigationOpen} headerCss={true}/>
+        <main className="main__content">
           <Promo />
           <NavTab />
           <AboutProject />
           <Techs />
           <AboutMe />
+        </main>
         <Footer />
       </div>
     );

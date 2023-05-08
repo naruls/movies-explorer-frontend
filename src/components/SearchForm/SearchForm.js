@@ -9,11 +9,11 @@ function SearchForm(props) {
     }
 
     function focusInput() {
-        document.getElementById('search-form__form').style.outline = "#e7e7e8 solid 1px"
+        document.getElementById('search-form__serch-panel').style.outline = "#e7e7e8 solid 1px"
     }
 
     function blurInput() {
-        document.getElementById('search-form__form').style.outline = "";
+        document.getElementById('search-form__serch-panel').style.outline = "";
     }
 
     return(

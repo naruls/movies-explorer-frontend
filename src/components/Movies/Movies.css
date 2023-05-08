@@ -5,3 +5,9 @@
     min-height: 100vh;
     background: #202020;
 }
+
+.movies__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

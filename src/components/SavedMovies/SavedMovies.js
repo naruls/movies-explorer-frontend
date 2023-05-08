@@ -9,9 +9,11 @@ function SavedMovies(props) {
     return(
       <div className="saved-movies">
         <Header />
-        <SearchForm />
-        <Preloader />
-        <MoviesCardList />
+        <main className="saved-movies__content">
+          <SearchForm />
+          <Preloader />
+          <MoviesCardList />
+        </main>
         <Footer />
       </div>
     );

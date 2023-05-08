@@ -11,9 +11,11 @@ function Movies(props) {
     return(
       <div className="movies">
         <Header />
-        <SearchForm />
-        <Preloader />
-        <MoviesCardList />
+        <main className="movies__content">
+          <SearchForm />
+          <Preloader />
+          <MoviesCardList />
+        </main>
         <Footer />
       </div>
     );

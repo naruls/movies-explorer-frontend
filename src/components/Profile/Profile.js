@@ -5,7 +5,9 @@ function Profile(props) {
     return(
         <>
             <Header setIsNavigationOpen={props.setIsNavigationOpen}/>
-            <ChangeProfile />
+            <main className="profile__content">
+                <ChangeProfile />
+            </main>
         </>
     );
 }

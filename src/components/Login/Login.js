@@ -12,11 +12,11 @@ function Login() {
                     <input className="login__input" required/>
                     <label className="login__input-label">Пароль</label>
                     <input className="login__input" required/>
-                    <span id="login-input-error" className="login__input-error">Что-то пошло не так...</span> 
+                    <span id="login-input-error" className="login__error">Что-то пошло не так...</span> 
                     <button className="login__submit-button">Войти</button>
                 </form>
                 <p className="login__inform">Ещё не зарегистрированы?
-                    <a className="login__inform-link"><Link to="/signup" className="login__link"> Регистрация</Link></a>
+                    <Link to="/signup" className="login__link"> Регистрация</Link>
                 </p>
             </div>
         </section>
