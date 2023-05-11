@@ -1,0 +1,88 @@
+.filter-checkbox {
+    display: flex;
+}
+
+.toggler-wrapper {
+    margin: auto 0 auto 29px;
+    display: block;
+    width: 36px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .toggler-wrapper input[type="checkbox"] {
+    display: none;
+  }
+  
+  .toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
+    background-color: #44cc66;
+  }
+  
+  .toggler-wrapper .toggler-slider {
+    background-color: #ccc;
+    position: absolute;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  
+  .toggler-wrapper .toggler-knob {
+    position: absolute;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  
+
+.toggler-wrapper.style-14 input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
+    left: calc(100% - 18.75px);
+  }
+  
+  .toggler-wrapper.style-14 .toggler-knob {
+    width: 12.5px;
+    height: 12.5px;
+    top: 50%;
+    left: 6.25px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+.filter-checkbox__label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #FFFFFF;
+    margin-left: 14px;
+    align-self: center;
+}
+
+@media screen and (min-width: 768px) and (max-width:1279px) {
+    .toggler-wrapper {
+        margin-left: 0;
+      }
+}
+
+
+@media screen and (min-width: 320px) and (max-width:767px) {
+
+    .filter-checkbox {
+        width: 148px;
+        margin: 0 auto;
+    }
+
+    .toggler-wrapper {
+        margin-left: 0;
+      }
+
+    .filter-checkbox__label {
+            font-size: 11px;
+            line-height: 18px;
+    }
+}
