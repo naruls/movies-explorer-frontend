@@ -144,6 +144,10 @@ function App() {
         setIsFormHaveError(true);
       }
     })
+    .catch((err) => {
+      setIsFormHaveError(true);
+      console.log(err);
+    })
   }
 
   function signOut(){

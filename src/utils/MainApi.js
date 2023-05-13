@@ -89,7 +89,7 @@ export class Api {
 }
 
 const apiMain = new Api({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'https://projectnarulsbackend.ru',
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
