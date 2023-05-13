@@ -5,3 +5,5 @@
 Ссылка на backend https://github.com/naruls/movies-explorer-api/tree/level-1
 
 Ссылка на pull request https://github.com/naruls/movies-explorer-frontend/pull/2
+
+Ссылка на веб страницу https://projectnaruls.ru
