@@ -43,7 +43,9 @@ function App() {
         .catch((err) => { console.log(`Ошибка: ${err}`); }
         );
     }
+
 }, []);
+
 
   React.useEffect(() => {
     checkToken();
@@ -53,6 +55,14 @@ function App() {
     const token = localStorage.getItem('token');
     getUserInfo(token);
     getMovies(token);
+  }, []);
+
+  React.useEffect(() => {
+    const searchMovie = JSON.parse(localStorage.getItem('searchMovie'));
+    if(searchMovie) {
+      setSearchData(searchMovie);
+      getFilms(searchMovie);
+    }
   }, []);
 
   function getUserInfo(token) {
@@ -116,6 +126,30 @@ function App() {
         setRender(false);
       })
   }
+  
+  function getSavedFilms(input) {
+    setPage(0);
+    setRender(true);
+    apiMovies.getMovies()
+      .then((data) => {
+        setCards(data)
+        if (input[0].value.length === 0) {
+          setCardListBlockContent('Нужно ввести ключевое слово');
+          return;
+        } else if (!data.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
+          setCardListBlockContent('Ничего не найдено')
+          return;
+        }
+        setCardListBlockContent('');
+      })
+      .catch((err) => {
+        console.log(err)
+        setCardListBlockContent('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+      })
+      .finally(() => {
+        setRender(false);
+      })
+  }
 
   function register(name, email, password) {
     moviesAuth.register(name, email, password).then((res) => {
@@ -152,6 +186,7 @@ function App() {
 
   function signOut(){
     localStorage.removeItem("token");
+    localStorage.removeItem("searchMovie")
     setLoggedIn(false);
     navigate('/signin');
   }
@@ -202,7 +237,7 @@ function App() {
                 userSavedMovies={true}
                 loggedIn={loggedIn} 
                 setIsNavigationOpen={openNavigationMenu} 
-                getFilms={getFilms} 
+                getFilms={getSavedFilms} 
                 setSearchData={setSearchData} 
                 saveMovies={saveMovies}
                 deleteMovies={deleteSavedMovies}

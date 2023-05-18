@@ -14,6 +14,8 @@ function SearchForm(props) {
                 return {name, value}
             })
         props.setSearchData(allInputData);
+        console.log(allInputData)
+        localStorage.setItem('searchMovie', JSON.stringify(allInputData));
         return allInputData;
     }
 
