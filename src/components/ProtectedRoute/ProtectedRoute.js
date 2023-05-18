@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ loggedIn, children  }) => {
-    if(loggedIn) {
-        return children
+const ProtectedRoute = ({ children  }) => {
+    if(localStorage.getItem('token')) {
+        return children;
     }
-    return <Navigate to='/main' replace/>
+        return <Navigate to='/main' replace/>;
 }
 
 export default ProtectedRoute;

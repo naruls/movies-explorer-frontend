@@ -40,7 +40,7 @@ function App() {
         moviesAuth.getContent(jwt).then((res) => {
           if (res.data) {
             handleLogin();
-            navigate('/movies');
+            // navigate('/movies');
           }
         })
         .catch((err) => { console.log(`Ошибка: ${err}`); }
@@ -251,8 +251,7 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path='/saved-movies' element={
-            <ProtectedRoute
-            loggedIn={loggedIn}>
+            <ProtectedRoute>
               <SavedMovies 
                 userSavedMovies={true}
                 loggedIn={loggedIn} 
@@ -272,8 +271,7 @@ function App() {
           </ProtectedRoute>} 
           />
         <Route path='/movies' element={
-            <ProtectedRoute
-            loggedIn={loggedIn}>
+            <ProtectedRoute>
               <Movies 
                 userSavedMovies={false}
                 loggedIn={loggedIn}
@@ -293,8 +291,7 @@ function App() {
           </ProtectedRoute>} 
           />
         <Route path='/profile' element={
-            <ProtectedRoute
-            loggedIn={loggedIn}>
+            <ProtectedRoute>
               <Profile 
               setIsNavigationOpen={openNavigationMenu}
               loggedIn={loggedIn}
@@ -310,8 +307,8 @@ function App() {
         <Route path='/signin' element={<Login login={login} changeFormErrorStatus={changeFormErrorStatus} isFormHaveError={isFormHaveError}/>} />
         <Route path='/main' element={<Main loggedIn={loggedIn} setIsNavigationOpen={openNavigationMenu}/>} />
         <Route path='/signup' element={<Register register={register} changeFormErrorStatus={changeFormErrorStatus} isFormHaveError={isFormHaveError}/>} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={loggedIn ? <Navigate to='/movies' replace /> : <Navigate to="/main" replace />} />
+        <Route path='*' element={<NotFound />} />
+        <Route path='/' element={loggedIn ? <Navigate to='/movies' replace /> : <Navigate to="/main" replace />} />
       </Routes>
       <Navigation isNavigationOpen={isNavigationOpen} closeNavigationMenu={closeNavigationMenu}/>
     </div>
