@@ -187,6 +187,8 @@ function App() {
   function signOut(){
     localStorage.removeItem("token");
     localStorage.removeItem("searchMovie")
+    setCards([]);
+    setSavedCards([]);
     setLoggedIn(false);
     navigate('/signin');
   }
