@@ -42,7 +42,7 @@ function ChangeProfile(props) {
                         <input name="email" className="profile__input" placeholder="Введите e-mail" value={email} onChange={changeEmail} required type="email" />
                         {props.isFormHaveError ? <span className="profile__input-error">Что-то пошло не так...</span> : <span className="profile__input-error">{errors.email}</span>}
                     </div>
-                    <button className={isValid ? "profile__change-button profile__button" : "profile__change-button_inactive"} disabled={isValid ? false : true}>Редактировать</button>
+                    <button className={(isValid&&(name!==currentUser.name||email!==currentUser.email)) ? "profile__change-button profile__button" : "profile__change-button_inactive"} disabled={(isValid&&(name!==currentUser.name||email!==currentUser.email)) ? false : true}>Редактировать</button>
                 </form>
                 <button className="profile__exit-button profile__button" onClick={props.signOut}>Выйти из аккаунта</button>
             </div>
