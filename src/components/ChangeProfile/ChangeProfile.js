@@ -5,8 +5,15 @@ import { useFormWithValidation } from '../Validation/Validation';
 function ChangeProfile(props) {
     const {values, handleChange, errors, isValid, resetForm} = useFormWithValidation();
     const currentUser = React.useContext(CurrentUserContext);
-    const [name, setName] = React.useState(`${currentUser.name}`)
-    const [email, setEmail] = React.useState(`${currentUser.email}`)
+    const [name, setName] = React.useState('')
+    const [email, setEmail] = React.useState('')
+
+    React.useEffect(() => {
+        setName(`${currentUser.name}`);
+        setEmail(`${currentUser.email}`);
+      }, [`${currentUser.name}`, `${currentUser.email}`]);
+
+    const nameD = currentUser.name;
 
     
     function changeName(evt) {
