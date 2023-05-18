@@ -40,7 +40,7 @@ function Login(props) {
                     <button className={isValid ? "login__submit-button" : "login__submit-button_inactive"} disabled={isValid ? false : true}>Войти</button>
                 </form>
                 <p className="login__inform">Ещё не зарегистрированы?
-                    <Link to="/signup" className="login__link"> Регистрация</Link>
+                    <Link to="/signup" className="login__link" onClick={ props.changeFormErrorStatus}> Регистрация</Link>
                 </p>
             </div>
         </section>

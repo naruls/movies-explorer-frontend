@@ -51,7 +51,7 @@ function Register(props) {
                     <button className={isValid ? "register__submit-button" : "register__submit-button_inactive"} disabled={isValid ? false : true}>Зарегистрироваться</button>
                 </form>
                 <p className="register__inform">Уже зарегистрированы?
-                    <Link to="/signin" className="regiser__link"> Войти</Link>
+                    <Link to="/signin" className="regiser__link" onClick={ props.changeFormErrorStatus}> Войти</Link>
                 </p>
             </div>
         </section>
