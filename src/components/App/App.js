@@ -32,6 +32,7 @@ function App() {
   const [cardListBlockContent, setCardListBlockContent] = React.useState('');
   const [page, setPage] =  React.useState(0);
   const [isFormHaveError, setIsFormHaveError] = React.useState(false);
+  const [isChangeProfilePopupOpen, setIsChangeProfilePopupOpen] = React.useState(false);
 
   const checkToken = React.useCallback(() => {
       const jwt = localStorage.getItem('token');
@@ -102,6 +103,10 @@ function App() {
 
   function changeFormErrorStatus() {
     setIsFormHaveError(false);
+  }
+
+  function closeChangeProfilePopup() {
+    setIsChangeProfilePopupOpen(false)
   }
 
 
@@ -226,13 +231,19 @@ function App() {
   }
 
   function updateProfile(data) {
-    apiMain.updateProfile(data, localStorage.token)
-    .then((data) => {
-      setCurrentUser( {...data.data} );
-    })
-    .catch((err) => {
+    if(EmailValidator.validate(data.email)){
+      apiMain.updateProfile(data, localStorage.token)
+      .then((data) => {
+        setIsChangeProfilePopupOpen(true);
+        setCurrentUser( {...data.data} );
+      })
+      .catch((err) => {
+        setIsFormHaveError(true);
+        console.log(err)})
+    }
+    else {
       setIsFormHaveError(true);
-      console.log(err)})
+    }
   }
 
   return (
@@ -291,6 +302,8 @@ function App() {
               updateProfile={updateProfile}
               isFormHaveError={isFormHaveError}
               changeFormErrorStatus={changeFormErrorStatus}
+              isChangeProfilePopupOpen={isChangeProfilePopupOpen}
+              closeChangeProfilePopup={closeChangeProfilePopup}
               />
           </ProtectedRoute>} 
           />
