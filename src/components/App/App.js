@@ -157,7 +157,7 @@ function App() {
     if(EmailValidator.validate(email)){
       moviesAuth.register(name, email, password).then((res) => {
         if(res){
-          navigate('/signin');
+          login(email, password);
         }
         else{
           setIsFormHaveError(true);
