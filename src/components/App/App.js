@@ -17,6 +17,8 @@ import * as moviesAuth from '../../utils/Auth.js';
 import apiMovies from '../../utils/MoviesApi';
 import apiMain from '../../utils/MainApi';
 
+import * as EmailValidator from 'email-validator';
+
 function App() {
   const navigate = useNavigate();    
 
@@ -151,19 +153,24 @@ function App() {
       })
   }
 
-  function register(name, email, password) {
-    moviesAuth.register(name, email, password).then((res) => {
-      if(res){
-        navigate('/signin');
-      }
-      else{
+  function register(name, email, password) { 
+    if(EmailValidator.validate(email)){
+      moviesAuth.register(name, email, password).then((res) => {
+        if(res){
+          navigate('/signin');
+        }
+        else{
+          setIsFormHaveError(true);
+        }
+      })
+      .catch((err) => {
         setIsFormHaveError(true);
-      }
-    })
-    .catch((err) => {
+        console.log(err);
+      })
+    } else {
       setIsFormHaveError(true);
-      console.log(err);
-    })
+      console.log(EmailValidator.validate(email))
+    }
   }
 
   function login(email, password) {
