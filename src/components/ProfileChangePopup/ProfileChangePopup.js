@@ -1,4 +1,5 @@
 function ProfileChangePopup(props) {
+
     return(
             <div className={props.isChangeProfilePopupOpen ? "profileChangePopup" : "profileChangePopup profileChangePopup_hidden"}>
                 <div className="profileChangePopup__overlay" onClick={props.closeChangeProfilePopup}></div>
