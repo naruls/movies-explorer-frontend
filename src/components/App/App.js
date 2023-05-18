@@ -202,7 +202,7 @@ function App() {
     setCards([]);
     setSavedCards([]);
     setLoggedIn(false);
-    navigate('/signin');
+    navigate('/');
   }
 
   function saveMovies(item) {
