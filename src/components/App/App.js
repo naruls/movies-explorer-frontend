@@ -40,7 +40,6 @@ function App() {
         moviesAuth.getContent(jwt).then((res) => {
           if (res.data) {
             handleLogin();
-            // navigate('/movies');
           }
         })
         .catch((err) => { console.log(`Ошибка: ${err}`); }

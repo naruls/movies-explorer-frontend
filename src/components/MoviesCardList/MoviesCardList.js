@@ -1,5 +1,6 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import React from 'react';
+import * as constants from '../../utils/constant';
 
 function MoviesCardList(props) {
     const [cardCount, setCardCount] = React.useState(0);
@@ -13,7 +14,7 @@ function MoviesCardList(props) {
         if (!props.userSavedMovies) {
             if(card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === false){
                 return <MoviesCard key={card.id} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
-            } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < 40) {
+            } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < constants.shortFilmsDuration) {
                 return <MoviesCard key={card.id} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
             } return 0; 
         } else if (props.userSavedMovies) {
@@ -21,7 +22,7 @@ function MoviesCardList(props) {
                 return <MoviesCard key={card.movieId} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
             } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === false) {
                 return <MoviesCard key={card.movieId} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
-            } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < 40) {
+            } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < constants.shortFilmsDuration) {
                 return <MoviesCard key={card.movieId} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
             }
         }
@@ -30,26 +31,17 @@ function MoviesCardList(props) {
    function sizeCheck() {
         if (!props.userSavedMovies) {
             if (document.documentElement.clientWidth >= 1280) {
-                setCardCount(12);
-                setAddValueCard(4);
+                setCardCount(constants.highResolutionCardOnScreenCount);
+                setAddValueCard(constants.highResolutionCardAddCount);
             } else if (document.documentElement.clientWidth <= 1279 && document.documentElement.clientWidth >= 662) {
-                setCardCount(8);
-                setAddValueCard(2);
+                setCardCount(constants.mediumResolutionCardOnScreenCount);
+                setAddValueCard(constants.mediumResolutionCardAddCount);
             } else if (document.documentElement.clientWidth <= 661 && document.documentElement.clientWidth > 0) {
-                setCardCount(5);
-                setAddValueCard(2);
+                setCardCount(constants.lowResolutionCardOnScreenCount);
+                setAddValueCard(constants.lowResolutionCardAddCount);
             }
         } else if (props.userSavedMovies) {
-            if (document.documentElement.clientWidth >= 1280) {
-                setCardCount(props.cards.length);
-                setAddValueCard(4);
-            } else if (document.documentElement.clientWidth <= 1279 && document.documentElement.clientWidth >= 662) {
-                setCardCount(props.cards.length);
-                setAddValueCard(2);
-            } else if (document.documentElement.clientWidth <= 661 && document.documentElement.clientWidth > 0) {
-                setCardCount(props.cards.length);
-                setAddValueCard(2);
-            }
+            setCardCount(props.cards.length);
         }
    }
 

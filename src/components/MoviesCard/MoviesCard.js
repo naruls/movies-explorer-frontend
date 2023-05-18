@@ -1,7 +1,8 @@
 import saveMovie from '../../images/save_movie.svg';
 import React from 'react';
 import saveMovieActive from '../../images/save_movie_active.svg';
-import deleteSavedMovie from '../../images/delet_saved_movie.svg'
+import deleteSavedMovie from '../../images/delet_saved_movie.svg';
+import * as constants from '../../utils/constant';
 
 function MoviesCard(props) {
 
@@ -24,7 +25,7 @@ function MoviesCard(props) {
                 <button className="card__button" onClick={props.userSavedMovies ? deleteMovies : isSaved ? deleteMovies : addMovies}>
                     <img className='card__button-image' src={props.userSavedMovies ? deleteSavedMovie : cardSavedImage} alt="картинка" />
                     </button>
-                <p className="card__duration">{`${Math.floor(props.card.duration/60)}ч${props.card.duration % 60}м`}</p>
+                <p className="card__duration">{`${Math.floor(props.card.duration/constants.oneHourInMinutes)}ч${props.card.duration % constants.oneHourInMinutes}м`}</p>
             </div>
         </div>
     );

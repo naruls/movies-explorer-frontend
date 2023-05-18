@@ -16,7 +16,6 @@ function Main(props) {
         <Techs />
         <AboutMe />
         <Footer />
-        {/* <Navigation /> */}
       </div>
     );
   }
