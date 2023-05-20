@@ -303,9 +303,9 @@ function App() {
               />
           </ProtectedRoute>} 
           />
-        <Route path='/signin' element={<Login login={login} changeFormErrorStatus={changeFormErrorStatus} isFormHaveError={isFormHaveError}/>} />
+        <Route path='/signin' element={loggedIn ? <Navigate to='/movies' replace /> : <Login login={login} changeFormErrorStatus={changeFormErrorStatus} isFormHaveError={isFormHaveError}/>} />
         <Route path='/main' element={<Main loggedIn={loggedIn} setIsNavigationOpen={openNavigationMenu}/>} />
-        <Route path='/signup' element={<Register register={register} changeFormErrorStatus={changeFormErrorStatus} isFormHaveError={isFormHaveError}/>} />
+        <Route path='/signup' element={loggedIn ? <Navigate to='/movies' replace /> : <Register register={register} changeFormErrorStatus={changeFormErrorStatus} isFormHaveError={isFormHaveError}/>} />
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={loggedIn ? <Navigate to='/movies' replace /> : <Navigate to="/main" replace />} />
       </Routes>
