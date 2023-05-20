@@ -8,7 +8,7 @@ function MoviesCardList(props) {
 
     React.useEffect(() => {
         sizeCheck();
-      }, []);
+      });
     
     let arraySearchCard = props.cards.map((card) => { 
         if (!props.userSavedMovies) {
@@ -44,12 +44,6 @@ function MoviesCardList(props) {
             setCardCount(props.cards.length);
         }
    }
-
-
-   window.addEventListener("resize", () => {
-        setTimeout(() => {sizeCheck()}, 1000)
-   })
-
 
     return(
         <section className="movies-card">
