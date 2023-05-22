@@ -204,6 +204,8 @@ function App() {
     setSavedCards([]);
     setSearchSavedMovieSettings([]);
     setSearchMovieSettings([]);
+    setsavedMoviesCardListBlockContent('');
+    setMoviesCardListBlockContent('');
     setLoggedIn(false);
     navigate('/');
   }
