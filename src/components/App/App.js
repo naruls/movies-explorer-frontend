@@ -30,7 +30,8 @@ function App() {
   const [render, setRender] = React.useState(false);
   const [searchMovieSettings, setSearchMovieSettings] = React.useState([]);
   const [searchSavedMovieSettings, setSearchSavedMovieSettings] = React.useState([]);
-  const [cardListBlockContent, setCardListBlockContent] = React.useState('');
+  const [moviesCardListBlockContent, setMoviesCardListBlockContent] = React.useState('');
+  const [savedMoviesCardListBlockContent, setsavedMoviesCardListBlockContent] = React.useState('');
   const [page, setPage] =  React.useState(0);
   const [isFormHaveError, setIsFormHaveError] = React.useState(false);
   const [isChangeProfilePopupOpen, setIsChangeProfilePopupOpen] = React.useState(false);
@@ -117,17 +118,17 @@ function App() {
       .then((data) => {
         setCards(data)
         if (input[0].value.length === 0) {
-          setCardListBlockContent('Нужно ввести ключевое слово');
+          setMoviesCardListBlockContent('Нужно ввести ключевое слово');
           return;
         } else if (!data.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
-          setCardListBlockContent('Ничего не найдено')
+          setMoviesCardListBlockContent('Ничего не найдено')
           return;
         }
-        setCardListBlockContent('');
+        setMoviesCardListBlockContent('');
       })
       .catch((err) => {
         console.log(err)
-        setCardListBlockContent('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+        setMoviesCardListBlockContent('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
       })
       .finally(() => {
         setRender(false);
@@ -141,17 +142,17 @@ function App() {
       .then((data) => {
         setCards(data)
         if (input[0].value.length === 0) {
-          setCardListBlockContent('Нужно ввести ключевое слово');
+          setsavedMoviesCardListBlockContent('Нужно ввести ключевое слово');
           return;
         } else if (!savedCards.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
-          setCardListBlockContent('Ничего не найдено')
+          setsavedMoviesCardListBlockContent('Ничего не найдено')
           return;
         }
-        setCardListBlockContent('');
+        setsavedMoviesCardListBlockContent('');
       })
       .catch((err) => {
         console.log(err)
-        setCardListBlockContent('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+        setsavedMoviesCardListBlockContent('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
       })
       .finally(() => {
         setRender(false);
@@ -288,7 +289,7 @@ function App() {
                 saveMovies={saveMovies}
                 deleteMovies={deleteSavedMovies}
                 render={render} 
-                cardListBlockContent={cardListBlockContent} 
+                cardListBlockContent={savedMoviesCardListBlockContent} 
                 searchData={searchSavedMovieSettings}
                 cards={savedCards}
                 addCard={addCard}
@@ -309,7 +310,7 @@ function App() {
                 saveMovies={saveMovies}
                 deleteMovies={deleteMovies}
                 render={render} 
-                cardListBlockContent={cardListBlockContent} 
+                cardListBlockContent={moviesCardListBlockContent} 
                 searchData={searchMovieSettings}
                 cards={cards}
                 addCard={addCard}
