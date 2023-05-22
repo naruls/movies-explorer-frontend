@@ -28,7 +28,8 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [savedCards, setSavedCards] = React.useState([]);
   const [render, setRender] = React.useState(false);
-  const [searchData, setSearchData] = React.useState([]);
+  const [searchMovieSettings, setSearchMovieSettings] = React.useState([]);
+  const [searchSavedMovieSettings, setSearchSavedMovieSettings] = React.useState([]);
   const [cardListBlockContent, setCardListBlockContent] = React.useState('');
   const [page, setPage] =  React.useState(0);
   const [isFormHaveError, setIsFormHaveError] = React.useState(false);
@@ -62,7 +63,7 @@ function App() {
   React.useEffect(() => {
     const searchMovie = JSON.parse(localStorage.getItem('searchMovie'));
     if(searchMovie) {
-      setSearchData(searchMovie);
+      setSearchMovieSettings(searchMovie);
       getFilms(searchMovie);
     }
   }, []);
@@ -142,7 +143,7 @@ function App() {
         if (input[0].value.length === 0) {
           setCardListBlockContent('Нужно ввести ключевое слово');
           return;
-        } else if (!data.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
+        } else if (!savedCards.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
           setCardListBlockContent('Ничего не найдено')
           return;
         }
@@ -200,6 +201,8 @@ function App() {
     localStorage.removeItem("searchMovie")
     setCards([]);
     setSavedCards([]);
+    setSearchSavedMovieSettings([]);
+    setSearchMovieSettings([]);
     setLoggedIn(false);
     navigate('/');
   }
@@ -245,6 +248,31 @@ function App() {
     }
   }
 
+  function returnFormSettings(formNode) {
+    const { elements } = formNode
+    const allInputData = Array.from(elements)
+        .filter((item) => !!item.name)
+        .map((element) => {
+            const {name, type } = element;
+            const value = type === 'checkbox' ? element.checked : element.value;
+            return {name, value}
+        })
+    return allInputData;
+  }
+
+  function serializeSearchMoviesForm(formNode) {
+    const allInputData = returnFormSettings(formNode);
+    setSearchMovieSettings(allInputData);
+    localStorage.setItem('searchMovie', JSON.stringify(allInputData));
+    return allInputData;
+  }
+
+  function serializeSearchSavedMoviesForm(formNode) {
+    const allInputData = returnFormSettings(formNode);
+    setSearchSavedMovieSettings(allInputData);
+    return allInputData;
+  }
+
   return (
   <CurrentUserContext.Provider value={currentUser}>
     <div className='app'>
@@ -256,16 +284,17 @@ function App() {
                 loggedIn={loggedIn} 
                 setIsNavigationOpen={openNavigationMenu} 
                 getFilms={getSavedFilms} 
-                setSearchData={setSearchData} 
+                setSearchData={setSearchSavedMovieSettings} 
                 saveMovies={saveMovies}
                 deleteMovies={deleteSavedMovies}
                 render={render} 
                 cardListBlockContent={cardListBlockContent} 
-                searchData={searchData}
+                searchData={searchSavedMovieSettings}
                 cards={savedCards}
                 addCard={addCard}
                 page={page}
                 savedCards={savedCards}
+                serializeForm={serializeSearchSavedMoviesForm}
               />
           </ProtectedRoute>} 
           />
@@ -276,16 +305,17 @@ function App() {
                 loggedIn={loggedIn}
                 setIsNavigationOpen={openNavigationMenu} 
                 getFilms={getFilms} 
-                setSearchData={setSearchData} 
+                setSearchData={setSearchMovieSettings} 
                 saveMovies={saveMovies}
                 deleteMovies={deleteMovies}
                 render={render} 
                 cardListBlockContent={cardListBlockContent} 
-                searchData={searchData}
+                searchData={searchMovieSettings}
                 cards={cards}
                 addCard={addCard}
                 page={page}
                 savedCards={savedCards}
+                serializeForm={serializeSearchMoviesForm}
                 />
           </ProtectedRoute>} 
           />

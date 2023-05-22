@@ -4,23 +4,9 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm(props) {
 
-    function serializeForm(formNode) {
-        const { elements } = formNode
-        const allInputData = Array.from(elements)
-            .filter((item) => !!item.name)
-            .map((element) => {
-                const {name, type } = element;
-                const value = type === 'checkbox' ? element.checked : element.value;
-                return {name, value}
-            })
-        props.setSearchData(allInputData);
-        localStorage.setItem('searchMovie', JSON.stringify(allInputData));
-        return allInputData;
-    }
-
     function searchFilms(evt) {
         evt.preventDefault();
-        props.getFilms(serializeForm(evt.target));
+        props.getFilms(props.serializeForm(evt.target));
     }
 
     function focusInput() {
