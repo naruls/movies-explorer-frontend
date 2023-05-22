@@ -7,7 +7,7 @@ function Header(props) {
     return (
       <header className={ props.headerCss ? 'header' : 'header_login' }>
         <div className='header__content'>
-            <button className='header__button-logo'><Link to="/main"><img className='header__logo' src={logo} alt="Логотип" /></Link></button>
+            <button className='header__button-logo'><Link className='header__logo-link' to="/main"><img className='header__logo' src={logo} alt="Логотип" /></Link></button>
             { props.loggedIn ?
             <div className='header__buttons_login'>
               <button className='header__movies header__button_login'><Link to="/movies" className='header__link'>Фильмы</Link></button>
