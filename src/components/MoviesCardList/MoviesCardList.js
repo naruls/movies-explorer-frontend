@@ -12,7 +12,9 @@ function MoviesCardList(props) {
     
     let arraySearchCard = props.cards.map((card) => { 
         if (!props.userSavedMovies) {
-            if(card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === false){
+            if (props.searchData.length === 0 || props.searchData[0].value.length === 0) {
+                return 0;
+            } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === false){
                 return <MoviesCard key={card.id} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
             } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < constants.shortFilmsDuration) {
                 return <MoviesCard key={card.id} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
