@@ -282,6 +282,11 @@ function App() {
     setSearchSavedMovieSettings(allInputData);
     return allInputData;
   }
+
+  function savedMoviesPageReload() {
+    setSearchSavedMovieSettings([]);
+    setsavedMoviesCardListBlockContent('');
+  }
   
 
   return (
@@ -306,6 +311,7 @@ function App() {
                 page={page}
                 savedCards={savedCards}
                 serializeForm={serializeSearchSavedMoviesForm}
+                savedMoviesPageReload={savedMoviesPageReload}
               />
           </ProtectedRoute>} 
           />

@@ -3,8 +3,13 @@ import SearchForm from "../SearchForm/SearchForm";
 import Footer from "../Footer/Footer";
 import Preloader from "../Preloader/Preloader";
 import MoviesCardList from "../MoviesCardList/MoviesCardList"
+import React from "react";
 
 function SavedMovies(props) {
+
+  React.useEffect(() => {
+      props.savedMoviesPageReload();
+  }, []);
 
     return(
       <div className="saved-movies">
