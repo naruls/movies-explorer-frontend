@@ -148,6 +148,10 @@
       max-width: 92.1875%;
     }
 
+    .header__logo-link {
+        margin-left: 0;
+    }
+
     .header__logo {
         margin-left: 0;
     }
@@ -169,6 +173,10 @@
 @media screen and (min-width: 320px) and (max-width:767px) {
     .header__content {
       max-width: 91.25%;
+    }
+
+    .header__logo-link {
+        margin-left: 0;
     }
 
     .header__logo {
