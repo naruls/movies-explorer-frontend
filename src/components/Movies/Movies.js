@@ -11,7 +11,7 @@ function Movies(props) {
     return(
       <div className="movies">
         <Header loggedIn={props.loggedIn} setIsNavigationOpen={props.setIsNavigationOpen}/>
-        <SearchForm getFilms={props.getFilms} setSearchData={props.setSearchData} serializeForm={props.serializeForm}/>
+        <SearchForm getFilms={props.getFilms} setSearchData={props.setSearchData} serializeForm={props.serializeForm} userSavedMovies={props.userSavedMovies}/>
         <Preloader render={props.render} />
         <MoviesCardList 
           cardListBlockContent={props.cardListBlockContent} 
