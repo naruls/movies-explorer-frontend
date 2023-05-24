@@ -18,6 +18,7 @@ import apiMovies from '../../utils/MoviesApi';
 import apiMain from '../../utils/MainApi';
 
 import * as EmailValidator from 'email-validator';
+import * as constants from '../../utils/constant';
 
 function App() {
   const navigate = useNavigate();    
@@ -120,10 +121,13 @@ function App() {
         if (input[0].value.length === 0) {
           setMoviesCardListBlockContent('Нужно ввести ключевое слово');
           return;
-        } else if (!data.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
+        } else if (!data.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase())) && input[1].value === false) {
           setMoviesCardListBlockContent('Ничего не найдено')
           return;
-        }
+        } else if (!data.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()) && item.duration<constants.shortFilmsDuration) && input[1].value === true) {
+          setMoviesCardListBlockContent('Ничего не найдено')
+          return;
+        } 
         setMoviesCardListBlockContent('');
       })
       .catch((err) => {
@@ -144,7 +148,10 @@ function App() {
         if (input[0].value.length === 0) {
           setsavedMoviesCardListBlockContent('Нужно ввести ключевое слово');
           return;
-        } else if (!savedCards.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()))) {
+        } else if (!savedCards.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase())) && input[1].value === false) {
+          setsavedMoviesCardListBlockContent('Ничего не найдено')
+          return;
+        } else if (!savedCards.some(item => item.nameRU.toLowerCase().includes(input[0].value.toLowerCase()) && item.duration<constants.shortFilmsDuration) && input[1].value === true) {
           setsavedMoviesCardListBlockContent('Ничего не найдено')
           return;
         }
@@ -275,6 +282,7 @@ function App() {
     setSearchSavedMovieSettings(allInputData);
     return allInputData;
   }
+  
 
   return (
   <CurrentUserContext.Provider value={currentUser}>

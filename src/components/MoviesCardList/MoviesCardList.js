@@ -10,7 +10,7 @@ function MoviesCardList(props) {
         sizeCheck();
       });
     
-    let arraySearchCard = props.cards.map((card) => { 
+      let arraySearchCard = props.cards.map((card) => { 
         if (!props.userSavedMovies) {
             if (props.searchData.length === 0 || props.searchData[0].value.length === 0) {
                 return 0;
@@ -18,7 +18,9 @@ function MoviesCardList(props) {
                 return <MoviesCard key={card.id} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
             } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < constants.shortFilmsDuration) {
                 return <MoviesCard key={card.id} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
-            } return 0; 
+            } else {
+                return 0;
+            }; 
         } else if (props.userSavedMovies) {
             if (props.searchData.length === 0 || props.searchData[0].value.length === 0) {
                 return <MoviesCard key={card.movieId} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
@@ -26,7 +28,9 @@ function MoviesCardList(props) {
                 return <MoviesCard key={card.movieId} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
             } else if (card.nameRU.toLowerCase().includes(props.searchData[0].value.toLowerCase()) && props.searchData[0].value !== '' && props.searchData[1].value === true && card.duration < constants.shortFilmsDuration) {
                 return <MoviesCard key={card.movieId} card={card} saveMovies={props.saveMovies} savedCards={props.savedCards} deleteMovies={props.deleteMovies} userSavedMovies={props.userSavedMovies}/>;
-            }
+            } else {
+                return 0;
+            }; 
         }
    }).filter(card => card !== 0);
 
