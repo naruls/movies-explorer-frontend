@@ -1,0 +1,139 @@
+.about-project {
+    background-color: #202020;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.about-project__content {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.about-project__title {
+    width: 1140px;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 110px auto 0;
+    letter-spacing: -0.04em;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #DADADA;
+}
+
+.about-project__table {
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
+    margin: 70px auto 0;
+}
+
+.about-project__table-element {
+    width: 550px;
+}
+
+.about-project__table-title {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+}
+
+.about-project__table-paragraph {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 26px 0 110px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.about-project__roadmap {
+    width: 1140px;
+    margin: 0 auto 105px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.about-project__grid-element {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    padding: 9px 0;
+    color: #8B8B8B;
+}
+
+.about-project__grid-element:first-child {
+    color: #000000;
+    background: #3DDC84;
+}
+
+.about-project__grid-element:nth-child(2) {
+    background: #303030;
+    color: #FFFFFF;
+}
+
+@media screen and (min-width: 768px) and (max-width:1279px) {
+    .about-project__content{
+        max-width: 100%;
+    }
+
+    .about-project__title {
+        max-width: 86.98%; 
+    }
+
+    .about-project__table {
+        max-width: 86.98%; 
+    }
+
+    .about-project__roadmap {
+        max-width: 86.98%; 
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width:767px) {
+    .about-project__content{
+        max-width: 100%;
+    }
+
+    .about-project__title {
+        max-width: 88.75%; 
+        margin-top: 70px;
+        padding-bottom: 27px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-project__table {
+        max-width: 88.75%; 
+        margin-top: 60px;
+        flex-direction: column;
+    }
+
+    .about-project__table-element {
+        width: 88.75%;
+    }
+
+    .about-project__table-title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-project__table-paragraph {
+        font-size: 11px;
+        line-height: 16px;
+        margin: 16px 0 56px;
+    }
+
+    .about-project__roadmap {
+        max-width: 88.75%; 
+        margin-bottom: 66px;
+    }
+    
+    .about-project__grid-element {
+        font-size: 11px;
+        line-height: 13px;
+        padding: 11px 0;
+    }
+}

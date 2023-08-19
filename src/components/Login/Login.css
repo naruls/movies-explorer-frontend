@@ -1,0 +1,150 @@
+.login {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #202020;
+    color: #FFFFFF;
+    font-style: normal;
+}
+
+.login__content {
+    display: flex;
+    flex-direction: column;
+    width: 396px;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+
+.login__logo {
+    width: 38px;
+    margin-bottom: 40px;
+}
+
+.login__greeting {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 auto 40px 0;
+}
+
+.login__form {
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input-label {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #8B8B8B;
+    margin: 0 0 10px;
+}
+
+.login__input {
+    all: unset;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFFFFF;
+    padding: 15px;
+    background-color:#2F2F2F;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+.login__input_error {
+    color:#EE3465;
+}
+
+.login__input:last-of-type {
+    margin-bottom: 10px;
+}
+
+.login__input-error {
+    height: 12px;
+    margin-bottom: 2px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.login__submit-button {
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    margin-top: auto;
+    background-color: #4285F4;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.login__submit-button_inactive {
+    border: none;
+    padding: 15px;
+    margin-top: auto;
+    background-color: #323f53;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.login__submit-button:hover {
+    opacity: 0.6;
+}
+
+.login__inform {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.login__inform-link {
+    color: #4285F4;
+}
+
+.login__inform-link:hover {
+    opacity: 0.6;
+}
+
+.login__link {
+    color: #4285F4;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 320px) and (max-width:767px) {
+    .login__content {
+        width: 260px;
+        padding-top: 56px;
+    }
+    
+    .login__logo {
+        margin-bottom: 50px;
+        align-self: center;
+    }
+    
+    .login__greeting {
+        margin: 0 auto 80px;
+        align-self: center;
+    }
+    
+    .login__form {
+        height: 468px;
+    }
+    
+    .login__inform {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
